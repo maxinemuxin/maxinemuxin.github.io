@@ -4,12 +4,15 @@ title: "Publications"
 permalink: /publications/
 ---
 
-<div class="publications">
-    <h1>Publications</h1>
-    <div class="content">
+<div style="margin: 20px auto; max-width: 800px; padding: 20px;">
+
+    <h1 style="text-align: center;">Publications</h1>
+
+    <div>
         {% capture publications_content %}
         {% include_relative publications.md %}
         {% endcapture %}
         {{ publications_content | markdownify }}
     </div>
+
 </div>
