@@ -6,6 +6,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
+
 I am a senior at Harvey Mudd College, joint majoring in **Computer Science and Mathematics**, with a second major in **Cognitive Science** at Pomona College. 
 ---
 I am interested in the following research directions:
@@ -15,4 +16,4 @@ I am interested in the following research directions:
 
 ---
 
-I am currently seeking PhD positions starting Fall 2025 and research opportunities in Spring and Summer 2025!
+I am currently looking for PhD positions starting Fall 2025 and research opportunities in Spring and Summer 2025!
