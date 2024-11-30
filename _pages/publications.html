@@ -3,15 +3,17 @@ layout: default
 title: "Publications"
 permalink: /publications/
 ---
-{% include base_path %}
-<div id="main" role="main">
-{% include sidebar.html %}
-    <div>
-        {% capture publications_content %}
-        {% include_relative publications.md %}
-        {% endcapture %}
-        {{ publications_content | markdownify }}
-    </div>
 
-</div>
+<div id="main" role="main">
+  {% include sidebar.html %}
+
+  <div class="archive">
+    <h1 class="page__title">{{ page.title }}</h1>
+    <div>
+      {% capture publications_content %}
+      {% include_relative publications.md %}
+      {% endcapture %}
+      {{ publications_content | markdownify }}
+    </div>
+  </div>
 </div>
