@@ -22,13 +22,13 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : #
-  pronouns         : # example: "she/her"  
-  bio              : #
-  location         : "Claremont, CA"
-  employer         : "Harvey Mudd College"
+  name             : "Muxin (Maxine) Liu"
+  pronouns         : # example: "she/her"
+  bio              : "Ph.D. student in CIS at the University of Pennsylvania. NSF GRFP Fellow."
+  location         : "Philadelphia, PA"
+  employer         : "University of Pennsylvania"
   uri              : # URL
-  email            : "maxliu@hmc.edu" 
+  email            : "muxinliu@seas.upenn.edu"
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
