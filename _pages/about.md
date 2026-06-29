@@ -7,15 +7,10 @@ redirect_from:
   - /about.html
 ---
 
-I am a Ph.D. student in Computer and Information Science at the **University of Pennsylvania**, advised by **Chris Callison-Burch**, and an **NSF Graduate Research Fellowship Program (GRFP) Fellow**. I do research in NLP.
+I am a Ph.D. student in Computer and Information Science at the University of Pennsylvania, advised by [Chris Callison-Burch](https://www.cis.upenn.edu/~ccb/). My work is supported by the NSF Graduate Research Fellowship Program (GRFP).
 
-Starting **July 2026**, I will also be a **Student Researcher at the Allen Institute for AI (AI2)**.
+My research centers on reasoning in large language models, spanning multimodal reasoning, scientific reasoning, and agentic reasoning.
 
-Previously, I earned my B.S. in **Computer Science and Mathematics** from Harvey Mudd College (2025), with a second major in **Cognitive Science** at Pomona College.
+Starting July 2026, I will also be a Student Researcher at the Allen Institute for AI (AI2).
 
----
-
-I am interested in the following research directions:
-1. Developing neurosymbolic methods and reasoning frameworks/pipelines to improve logical reasoning and agent design.
-2. Understanding models' internal representations in reasoning and social tasks.
-3. Comparing cognitive processes in humans and machines to improve LLM mechanisms by drawing insights from human cognition or aligning LLMs with human values.
+Before Penn, I earned my B.S. in Computer Science and Mathematics from Harvey Mudd College (2025), with a second major in Cognitive Science at Pomona College.

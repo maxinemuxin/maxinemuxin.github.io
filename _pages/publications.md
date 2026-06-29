@@ -3,7 +3,7 @@
 
 - [**When Verification Fails: How Compositionally Infeasible Claims Escape Rejection**](https://arxiv.org/abs/2604.10990)  
   **Muxin Liu**, Delip Rao, Grace Kim, Chris Callison-Burch.  
-  *CoLM 2026 (Under Review)*
+  *ACL 2026 SURGE Workshop; under review at a major conference*
 
 - [**Internal Mechanisms for Tracking Belief State in Language Models**](https://drive.google.com/file/d/1Hign2Jy_0wzPzIUBrz_BKKzzWfwz74WF/view?usp=sharing)  
   **Muxin Liu**, Jacob Andreas, Belinda Li.  
