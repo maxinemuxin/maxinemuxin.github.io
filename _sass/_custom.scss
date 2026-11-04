@@ -1,0 +1,262 @@
+/* ==========================================================================
+   CUSTOM OVERRIDES
+   Site-specific refinements layered on top of the theme defaults.
+   Kept in one file so theme partials stay untouched.
+   ========================================================================== */
+
+/* Accent palette
+   --------------------------------------------------------------------------
+   A single purple runs through the site as a quiet accent: rules, hovers,
+   focus rings and text selection. Body links stay navy so the purple reads
+   as punctuation rather than as the dominant colour. */
+
+$purple          : #6b3fa0; // primary accent
+$purple-deep     : #52307d; // hover / pressed
+$purple-hairline : #e7e0f2; // tinted rules and borders
+$purple-wash     : rgba(107, 63, 160, 0.09); // selection, subtle fills
+
+/* Type scale
+   --------------------------------------------------------------------------
+   The theme scales the root font up to 18px on desktop, which makes every
+   element read oversized. Hold it at 16px so the whole page settles down. */
+
+html {
+  font-size: 16px;
+
+  @include breakpoint($medium) {
+    font-size: 16px;
+  }
+
+  @include breakpoint($large) {
+    font-size: 16px;
+  }
+}
+
+/* Body copy
+   -------------------------------------------------------------------------- */
+
+body {
+  color: #2e3338;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  line-height: 1.65;
+}
+
+/* Cap the measure so lines stay comfortable to read on wide screens. */
+.page__content {
+  p,
+  li {
+    max-width: 68ch;
+  }
+}
+
+/* Headings
+   -------------------------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #1b1f23;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+}
+
+.page__title {
+  font-size: 1.9em;
+  margin-bottom: 0.6em;
+  letter-spacing: -0.02em;
+}
+
+.page__content {
+  h2 {
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+    padding-bottom: 0.35em;
+    font-size: 1.3em;
+    border-bottom: 1px solid $purple-hairline;
+  }
+
+  h3 {
+    margin-top: 1.6em;
+    font-size: 1.1em;
+  }
+}
+
+/* Links
+   --------------------------------------------------------------------------
+   The default theme link is a washed-out teal. Swap in a restrained navy and
+   underline only on hover, which reads cleaner in dense publication lists. */
+
+a {
+  color: #1f4e79;
+  text-decoration: none;
+
+  &:visited {
+    color: #1f4e79;
+  }
+
+  &:hover,
+  &:focus {
+    color: $purple;
+    text-decoration: underline;
+    text-decoration-color: rgba(107, 63, 160, 0.4);
+    text-underline-offset: 2px;
+  }
+
+  &:active {
+    color: $purple-deep;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $purple;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+/* Text selection picks up the accent. */
+::selection {
+  background: $purple-wash;
+  color: #1b1f23;
+}
+
+::-moz-selection {
+  background: $purple-wash;
+  color: #1b1f23;
+}
+
+/* Author sidebar
+   -------------------------------------------------------------------------- */
+
+.author__avatar img {
+  max-width: 160px;
+  border: 1px solid $purple-hairline;
+  box-shadow: 0 0 0 4px rgba(107, 63, 160, 0.06);
+}
+
+.author__name {
+  font-size: 1.15em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.25em;
+}
+
+/* Line 1: "Muxin Liu 刘牧昕" — the Chinese name sits inline after the Latin
+   name, set in a CJK stack and a lighter tone so the two read as a pair
+   rather than competing. */
+.author__chinese-name {
+  margin-left: 0.3em;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Source Han Sans SC", "Noto Sans CJK SC", sans-serif;
+  font-size: 0.95em;
+  font-weight: 400;
+  color: #5b6570;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* Line 2: "goes by Maxine" — Maxine is a primary part of the identity, so it
+   gets its own typeface and color while "goes by" recedes. */
+.author__goes-by {
+  margin: 0.2em 0 0.9em;
+  font-size: 0.88em;
+  font-weight: 400;
+  color: #8a939c;
+  letter-spacing: 0.01em;
+
+  strong {
+    display: inline-block;
+    margin-left: 0.12em;
+    font-family: $serif;
+    font-size: 1.38em;
+    font-weight: 600;
+    font-style: italic;
+    color: $purple;
+    letter-spacing: 0;
+  }
+}
+
+.author__bio,
+.author__urls li {
+  font-size: 0.85em;
+  line-height: 1.55;
+  color: #5b6570;
+}
+
+.author__urls {
+  a {
+    color: #5b6570;
+
+    &:hover {
+      color: $purple;
+      text-decoration: none;
+    }
+  }
+
+  li {
+    padding: 0.3em 0;
+  }
+}
+
+/* Masthead / navigation
+   -------------------------------------------------------------------------- */
+
+.masthead {
+  border-bottom: 1px solid $purple-hairline;
+
+  .site-title {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+}
+
+.greedy-nav {
+  background: transparent;
+
+  a {
+    font-size: 0.9em;
+    color: #4a5460;
+
+    &:hover {
+      color: $purple;
+      text-decoration: none;
+    }
+  }
+}
+
+/* Publication list
+   --------------------------------------------------------------------------
+   The publications are a plain markdown list; give each entry breathing room
+   and a clear hierarchy between title, authors, and venue. */
+
+.page__content {
+  ul li {
+    margin-bottom: 1.1em;
+    line-height: 1.6;
+  }
+
+  /* Venue line (the trailing italic) reads as secondary metadata. */
+  em {
+    color: #6b7580;
+    font-size: 0.93em;
+    font-style: normal;
+  }
+
+  /* Author names: your own name is bolded in the source markdown. */
+  strong {
+    font-weight: 600;
+  }
+}
+
+/* Horizontal rule used to separate the bio from the publication list. */
+hr {
+  border: 0;
+  border-top: 1px solid $purple-hairline;
+  margin: 2.5em 0 2em;
+}

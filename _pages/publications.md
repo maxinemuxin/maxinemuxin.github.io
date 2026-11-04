@@ -1,9 +1,13 @@
 
 ## Publications
 
+- [**Distill, Debate, Discover: Grounding Multi-Agent Research Ideation in Graph-Distilled Insights**](https://arxiv.org/abs/2610.33366)  
+  Qianran Ma, **Muxin Liu**, Grace Kim, Xiao Liang, Chris Callison-Burch.  
+  *arXiv preprint, 2026*
+
 - [**When Verification Fails: How Compositionally Infeasible Claims Escape Rejection**](https://arxiv.org/abs/2604.10990)  
   **Muxin Liu**, Delip Rao, Grace Kim, Chris Callison-Burch.  
-  *ACL 2026 SURGE Workshop; under review at a major conference*
+  *COLM 2026 (Poster); earlier version at ACL 2026 SURGE Workshop*
 
 - [**Internal Mechanisms for Tracking Belief State in Language Models**](https://drive.google.com/file/d/1Hign2Jy_0wzPzIUBrz_BKKzzWfwz74WF/view?usp=sharing)  
   **Muxin Liu**, Jacob Andreas, Belinda Li.  
