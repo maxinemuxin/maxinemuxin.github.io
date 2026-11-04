@@ -12,9 +12,9 @@ My research centers on reasoning in large language models, spanning multimodal r
 
 I'm originally from Shanghai, China. Before Penn, I earned my B.S. in Computer Science and Mathematics from Harvey Mudd College (2025), with a second major in Cognitive Science at Pomona College. During my undergraduate years, I was very lucky to work with [Jacob Andreas](https://www.mit.edu/~jda/) at MIT CSAIL, and I was named a Finalist for the CRA Outstanding Undergraduate Researcher Award.
 
-Outside of research, I'm a pretty active person — you'll usually find me climbing or out on the tennis court. I also love an adventurous road trip, and I'm always on the hunt for new food places to try.
+Outside of research, I'm a pretty active person. You'll usually find me climbing or out on the tennis court. I also love an adventurous road trip, and I'm always on the hunt for new food places to try.
 
-Please don't hesitate to reach out if you have questions about my research, want to trade ideas, or are thinking about working together — I'm always glad to hear from people, and collaborations are very welcome.
+Feel free to reach out with questions or ideas. I'm always happy to collaborate!
 
 ---
 
@@ -25,8 +25,8 @@ Please don't hesitate to reach out if you have questions about my research, want
   *Agentic optimization for document processing*
 
 - **Student Researcher**, [Allen Institute for AI (AI2)](https://allenai.org/)  
-  July – October 2026 · Molmo team, advised by Christopher Clark  
-  *Multimodal model RL training*
+  July – October 2026 · Open-ecosystem multi-modal team, advised by [Christopher Clark](https://chrisc36.github.io/)  
+  *RL training for vision-language models; paper in preparation*
 
 ---
 
