@@ -10,6 +10,12 @@
    focus rings and text selection. Body links stay navy so the purple reads
    as punctuation rather than as the dominant colour. */
 
+/* Type families: Inter for body and UI, Source Serif 4 for display text.
+   Both load from Google Fonts in _includes/head/custom.html. */
+$font-body    : "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                Helvetica, Arial, sans-serif;
+$font-display : "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+
 $purple          : #6b3fa0; // primary accent
 $purple-deep     : #52307d; // hover / pressed
 $purple-hairline : #e7e0f2; // tinted rules and borders
@@ -36,6 +42,7 @@ html {
    -------------------------------------------------------------------------- */
 
 body {
+  font-family: $font-body;
   color: #2e3338;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -45,12 +52,11 @@ p {
   line-height: 1.65;
 }
 
-/* Cap the measure so lines stay comfortable to read on wide screens. */
-.page__content {
-  p,
-  li {
-    max-width: 68ch;
-  }
+/* Cap the measure so lines stay comfortable to read on wide screens.
+   Only top-level prose paragraphs are capped: structured entries
+   (experience, education, publications) need the full column width. */
+.page__content > p {
+  max-width: 68ch;
 }
 
 /* Headings
@@ -61,7 +67,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.author__name {
+  font-family: $font-display;
   color: #1b1f23;
   font-weight: 600;
   letter-spacing: -0.012em;
@@ -173,7 +181,7 @@ a {
   strong {
     display: inline-block;
     margin-left: 0.12em;
-    font-family: $serif;
+    font-family: $font-display;
     font-size: 1.38em;
     font-weight: 600;
     font-style: italic;
@@ -259,4 +267,204 @@ hr {
   border: 0;
   border-top: 1px solid $purple-hairline;
   margin: 2.5em 0 2em;
+}
+
+/* ==========================================================================
+   Structured entries: badges, experience/education lists, publications
+   ========================================================================== */
+
+/* Venue / status badge
+   -------------------------------------------------------------------------- */
+
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.6em;
+  border-radius: 3px;
+  background: #f0ebf8;
+  color: #553084;
+  font-family: $monospace;
+  font-size: 0.72em;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* Sidebar tagline
+   --------------------------------------------------------------------------
+   Reads as a keyword line ("PhD student · CIS · Penn") rather than a
+   sentence, so the role is legible at a glance. */
+
+.author__bio {
+  font-size: 0.86em;
+  line-height: 1.5;
+  color: #3f4855;
+}
+
+/* Experience / Education entries
+   --------------------------------------------------------------------------
+   Title on the left, dates pulled out to the right, then supporting lines.
+   Keeping the date in its own column stops it from crowding the content. */
+
+.entry-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.entry {
+  margin-bottom: 1.5em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.entry__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.2em 1.2em;
+  margin-bottom: 0.2em;
+}
+
+.entry__title {
+  font-size: 1em;
+  line-height: 1.4;
+
+  b {
+    font-weight: 600;
+    color: #1b1f23;
+  }
+}
+
+.entry__date {
+  flex-shrink: 0;
+  font-family: $monospace;
+  font-size: 0.78em;
+  color: #6b7580;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.page__content .entry p {
+  margin: 0 0 0.15em;
+  max-width: none;
+}
+
+.entry__org {
+  font-size: 0.92em;
+  line-height: 1.5;
+  color: #4a5460;
+}
+
+.entry__note {
+  font-size: 0.88em;
+  line-height: 1.5;
+  color: #6b7580;
+}
+
+/* Publications
+   -------------------------------------------------------------------------- */
+
+.pub-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pub {
+  margin-bottom: 0; /* overrides the generic .page__content ul li margin */
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 1.4em;
+  align-items: start;
+  padding: 1.6em 0;
+  border-top: 1px solid $purple-hairline;
+
+  &:first-child {
+    border-top: 0;
+    padding-top: 0.4em;
+  }
+}
+
+.pub__fig {
+  display: block;
+  border: 1px solid $purple-hairline;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+  line-height: 0;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &:hover,
+  &:focus-visible {
+    border-color: rgba(107, 63, 160, 0.45);
+    box-shadow: 0 2px 10px rgba(107, 63, 160, 0.13);
+  }
+}
+
+.pub__body {
+  min-width: 0;
+}
+
+.pub__venue {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin: 0 0 0.45em;
+  line-height: 1;
+}
+
+.pub__title {
+  margin: 0 0 0.35em;
+  font-size: 1.02em;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+
+  a {
+    color: #1b1f23;
+
+    &:hover {
+      color: $purple;
+      text-decoration: none;
+    }
+  }
+}
+
+.pub__authors {
+  margin: 0 0 0.3em;
+  font-size: 0.9em;
+  line-height: 1.5;
+  color: #4a5460;
+
+  b {
+    color: #1b1f23;
+    font-weight: 600;
+  }
+}
+
+.pub__meta {
+  margin: 0;
+  font-size: 0.84em;
+  color: #6b7580;
+}
+
+/* Stack the figure above the text on narrow screens. */
+@media (max-width: 700px) {
+  .pub {
+    grid-template-columns: 1fr;
+    gap: 0.9em;
+  }
+
+  .pub__fig {
+    max-width: 420px;
+  }
 }
