@@ -339,13 +339,38 @@ hr {
   }
 }
 
-.entry__date {
+/* Date and location stack in a right-aligned column beside the title. */
+.entry__meta {
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  line-height: 1.35;
+}
+
+.entry__date {
   font-family: $monospace;
   font-size: 0.78em;
   color: #6b7580;
   letter-spacing: 0.02em;
   white-space: nowrap;
+}
+
+.entry__place {
+  font-size: 0.78em;
+  color: #8a939c;
+  white-space: nowrap;
+}
+
+/* On narrow screens let the pair sit inline under the title instead. */
+@media (max-width: 600px) {
+  .entry__meta {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.5em;
+    text-align: left;
+  }
 }
 
 .page__content .entry p {
