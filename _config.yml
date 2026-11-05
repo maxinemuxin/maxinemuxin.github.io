@@ -23,6 +23,8 @@ repository               : "maxinemuxin/maxinemuxin.github.io"
 author:
   # Biographic information
   avatar           : "profile.jpg"
+  avatar_back      : "profile-back.jpg"
+  avatar_hint      : "click to flip"
   name             : "Muxin Liu"
   goes_by          : "Maxine"
   chinese_name     : "刘牧昕"

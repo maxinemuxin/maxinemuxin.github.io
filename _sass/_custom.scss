@@ -20,6 +20,10 @@ $purple          : #6b3fa0; // primary accent
 $purple-deep     : #52307d; // hover / pressed
 $purple-hairline : #e7e0f2; // tinted rules and borders
 $purple-wash     : rgba(107, 63, 160, 0.09); // selection, subtle fills
+$purple-link     : #5c3a90; // body links at rest
+$purple-paper    : #ffffff; // page ground
+$purple-ink      : #1f1a28; // headings
+$purple-body     : #343040; // body copy
 
 /* Type scale
    --------------------------------------------------------------------------
@@ -43,7 +47,8 @@ html {
 
 body {
   font-family: $font-body;
-  color: #2e3338;
+  background-color: $purple-paper;
+  color: $purple-body;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -70,7 +75,7 @@ h5,
 h6,
 .author__name {
   font-family: $font-display;
-  color: #1b1f23;
+  color: $purple-ink;
   font-weight: 600;
   letter-spacing: -0.012em;
 }
@@ -102,16 +107,16 @@ h6,
    underline only on hover, which reads cleaner in dense publication lists. */
 
 a {
-  color: #1f4e79;
+  color: $purple-link;
   text-decoration: none;
 
   &:visited {
-    color: #1f4e79;
+    color: $purple-link;
   }
 
   &:hover,
   &:focus {
-    color: $purple;
+    color: $purple-deep;
     text-decoration: underline;
     text-decoration-color: rgba(107, 63, 160, 0.4);
     text-underline-offset: 2px;
@@ -131,12 +136,12 @@ a {
 /* Text selection picks up the accent. */
 ::selection {
   background: $purple-wash;
-  color: #1b1f23;
+  color: $purple-ink;
 }
 
 ::-moz-selection {
   background: $purple-wash;
-  color: #1b1f23;
+  color: $purple-ink;
 }
 
 /* Author sidebar
@@ -146,6 +151,105 @@ a {
   max-width: 160px;
   border: 1px solid $purple-hairline;
   box-shadow: 0 0 0 4px rgba(107, 63, 160, 0.06);
+}
+
+/* Flip avatar
+   --------------------------------------------------------------------------
+   Click the photo to rotate it and reveal a second image on the back face.
+   A real <button>, so it is reachable by keyboard and screen readers. */
+
+.avatar-flip {
+  display: block;
+  width: 100%;
+  max-width: 160px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  line-height: 0;
+  perspective: 900px;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus-visible {
+    outline: 2px solid $purple;
+    outline-offset: 4px;
+    border-radius: 50%;
+  }
+}
+
+.avatar-flip__inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-top: 100%; /* keeps the card square as it scales */
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.avatar-flip.is-flipped .avatar-flip__inner {
+  transform: rotateY(180deg);
+}
+
+.avatar-flip__face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: 0 0 0 1px $purple-hairline, 0 0 0 5px rgba(107, 63, 160, 0.06);
+}
+
+.avatar-flip__face--back {
+  transform: rotateY(180deg);
+}
+
+/* Override the theme's avatar img rules, which add padding and borders that
+   would break the absolutely-positioned faces. */
+.author__avatar .avatar-flip img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Small nudge that the photo is interactive; it fades once used. */
+.avatar-hint {
+  max-width: 160px;
+  margin: 0.6em 0 0;
+  font-size: 0.72em;
+  color: #9aa3ad;
+  letter-spacing: 0.04em;
+  text-align: center;
+  transition: opacity 0.4s ease;
+
+  &::before {
+    content: "\21BB"; /* ↻ */
+    margin-right: 0.35em;
+    color: $purple;
+    opacity: 0.75;
+  }
+}
+
+.avatar-flip:hover + .avatar-hint {
+  color: $purple;
+}
+
+.avatar-hint.is-used {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avatar-flip__inner {
+    transition: none;
+  }
 }
 
 .author__name {
@@ -335,7 +439,7 @@ hr {
 
   b {
     font-weight: 600;
-    color: #1b1f23;
+    color: $purple-ink;
   }
 }
 
@@ -455,7 +559,7 @@ hr {
   letter-spacing: -0.005em;
 
   a {
-    color: #1b1f23;
+    color: $purple-ink;
 
     &:hover {
       color: $purple;
@@ -471,7 +575,7 @@ hr {
   color: #4a5460;
 
   b {
-    color: #1b1f23;
+    color: $purple-ink;
     font-weight: 600;
   }
 }
@@ -491,5 +595,36 @@ hr {
 
   .pub__fig {
     max-width: 420px;
+  }
+}
+
+/* Monstera
+   --------------------------------------------------------------------------
+   A quiet bit of personality in the bottom-right corner. The wrapper clips
+   the leaf so bleeding it off the edge can never create a scrollbar, and it
+   is inert to pointer events and hidden from assistive tech. */
+
+.monstera {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  width: 190px;
+  height: 250px;
+  overflow: hidden;
+  pointer-events: none;
+
+  img {
+    position: absolute;
+    right: -58px;
+    bottom: -46px;
+    width: 250px;
+    opacity: 0.07;
+    transform: rotate(-14deg);
+  }
+
+  /* Too tight to be pleasant on small screens. */
+  @media (max-width: 900px) {
+    display: none;
   }
 }

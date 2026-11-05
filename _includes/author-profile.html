@@ -6,11 +6,24 @@
 
 <div itemscope itemtype="http://schema.org/Person">
 
+  {% if author.avatar contains "://" %}{% assign avatar_front = author.avatar %}{% else %}{% capture avatar_front %}{{ author.avatar | prepend: "/images/" | prepend: base_path }}{% endcapture %}{% endif %}
+  {% if author.avatar_back %}{% if author.avatar_back contains "://" %}{% assign avatar_back = author.avatar_back %}{% else %}{% capture avatar_back %}{{ author.avatar_back | prepend: "/images/" | prepend: base_path }}{% endcapture %}{% endif %}{% endif %}
+
   <div class="author__avatar">
-    {% if author.avatar contains "://" %}
-    	<img src="{{ author.avatar }}" alt="{{ author.name }}">
+    {% if avatar_back %}
+      <button type="button" class="avatar-flip" aria-pressed="false" aria-label="Flip photo">
+        <span class="avatar-flip__inner">
+          <span class="avatar-flip__face avatar-flip__face--front">
+            <img src="{{ avatar_front }}" alt="{{ author.name }}">
+          </span>
+          <span class="avatar-flip__face avatar-flip__face--back">
+            <img src="{{ avatar_back }}" alt="{{ author.name }}, second photo" loading="lazy">
+          </span>
+        </span>
+      </button>
+      {% if author.avatar_hint %}<p class="avatar-hint" aria-hidden="true">{{ author.avatar_hint }}</p>{% endif %}
     {% else %}
-    	<img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" class="author__avatar" alt="{{ author.name }}">
+      <img src="{{ avatar_front }}" class="author__avatar" alt="{{ author.name }}">
     {% endif %}
   </div>
 
